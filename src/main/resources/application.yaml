@@ -1,0 +1,8 @@
+spring:
+  main:
+    web-application-type: none
+app:
+  url:
+    movie:
+      top250: https://imdb-api.com/en/API/Top250Movies/${app.url.apiKey}
+  
