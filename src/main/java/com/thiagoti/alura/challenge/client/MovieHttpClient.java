@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.thiagoti.alura.challenge.config.props.ApplicationProperties;
+import com.thiagoti.alura.challenge.model.MoviePage;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
@@ -17,7 +18,7 @@ public class MovieHttpClient implements MovieClient {
     private ApplicationProperties applicationProperties;
     
     @Override
-    public Mono<String> findTop250By() {
+    public Mono<MoviePage> findTop250By() {
         
         WebClient client = WebClient.builder()
                 .baseUrl(applicationProperties.getUrl().getMovie().getTop250()).build();
@@ -26,7 +27,7 @@ public class MovieHttpClient implements MovieClient {
         
         return client.get().exchangeToMono(response -> {
             if(response.statusCode().is2xxSuccessful()) {
-                return response.bodyToMono(String.class);
+                return response.bodyToMono(MoviePage.class);
             }
             throw new RuntimeException("could not make a resquest to client.");
         });

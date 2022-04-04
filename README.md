@@ -18,3 +18,7 @@ This is my implementation for [7 Days of Code](https://7daysofcode.io/matricula/
 
 ``java -jar 7-days-of-code-challenge-0.0.1-SNAPSHOT.jar --app.url.apiKey=${YOUR_KEY}``
 
+Go into the browser, 
+
+``http://${host}:${port}``
+

@@ -1,8 +1,9 @@
 spring:
   main:
-    web-application-type: none
+    web-application-type: servlet
 app:
   url:
+    apiKey: none
     movie:
-      top250: https://imdb-api.com/en/API/Top250Movies/${app.url.apiKey}
+      top250: https://imdb-api.com/en/API/Top250Movies/${app.url.apiKey} #https://run.mocky.io/v3/2d767e02-8514-4b6e-a98e-7beb2629bd5a
   
